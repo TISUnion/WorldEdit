@@ -75,7 +75,7 @@ public class WorldEditManifest {
             URL url = new URL(classPath);
             JarURLConnection jarConnection = (JarURLConnection) url.openConnection();
             Manifest manifest = jarConnection.getManifest();
-            return manifest.getMainAttributes();
+            return manifest != null ? manifest.getMainAttributes() : null;
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
